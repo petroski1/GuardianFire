@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { motion, AnimatePresence } from "framer-motion";
 import { API } from "../App";
 import DashboardLayout from "../components/DashboardLayout";
 import RiskCard from "../components/RiskCard";
