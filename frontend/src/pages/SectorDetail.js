@@ -184,8 +184,8 @@ const SectorDetail = ({ user }) => {
             riskStatus === "warning" ? "border-amber-500/50 bg-amber-500/5 glow-warning" :
             "border-emerald-500/50 bg-emerald-500/5 glow-safe"
           }`}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          
+          
         >
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-4">
@@ -219,9 +219,9 @@ const SectorDetail = ({ user }) => {
               <div className="h-4 bg-zinc-800 rounded-full overflow-hidden">
                 <div 
                   className="h-full risk-meter rounded-full"
-                  initial={{ width: 0 }}
-                  animate={{ width: `${sector.risk_level || 0}%` }}
-                  transition={{ duration: 1, ease: "easeOut" }}
+                  
+                  
+                  
                 />
               </div>
             </div>
