@@ -70,7 +70,7 @@ const LandingPage = () => {
               <div className="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center">
                 <Shield className="w-6 h-6 text-white" />
               </div>
-              <span className="font-heading font-bold text-xl tracking-wide">GUARDIANFIRE AI</span>
+              <span className="font-heading font-bold text-xl tracking-wide">GUARDIANFIRE</span>
             </div>
             <Button 
               onClick={handleLogin}

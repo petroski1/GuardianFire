@@ -79,7 +79,7 @@ const DashboardLayout = ({ children, user }) => {
             </div>
             <div>
               <span className="font-heading font-bold text-white text-sm tracking-wide">GUARDIANFIRE</span>
-              <span className="block text-xs text-zinc-500">Sistema de Previsão</span>
+              <span className="block text-xs text-zinc-500">Previsão Ativa Industrial</span>
             </div>
           </div>
         </div>
