@@ -21,7 +21,8 @@ import {
   Settings,
   LogOut,
   Menu,
-  ChevronRight
+  ChevronRight,
+  Cpu
 } from "lucide-react";
 
 const DashboardLayout = ({ children, user }) => {
@@ -43,6 +44,7 @@ const DashboardLayout = ({ children, user }) => {
     { icon: <Activity className="w-5 h-5" />, label: "Sensores", path: "/sensors" },
     { icon: <Wrench className="w-5 h-5" />, label: "Ordens de Serviço", path: "/work-orders" },
     { icon: <FileText className="w-5 h-5" />, label: "Relatos", path: "/reports" },
+    { icon: <Cpu className="w-5 h-5" />, label: "Arquitetura", path: "/architecture" },
     { icon: <Settings className="w-5 h-5" />, label: "Configurações", path: "/settings" },
   ];
 

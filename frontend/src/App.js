@@ -11,6 +11,7 @@ import Sensors from "./pages/Sensors";
 import WorkOrders from "./pages/WorkOrders";
 import Reports from "./pages/Reports";
 import Settings from "./pages/Settings";
+import Architecture from "./pages/Architecture";
 
 // Components
 import { Toaster } from "./components/ui/sonner";
@@ -108,6 +109,11 @@ function AppRouter() {
       <Route path="/settings" element={
         <ProtectedRoute>
           {({ user }) => <Settings user={user} />}
+        </ProtectedRoute>
+      } />
+      <Route path="/architecture" element={
+        <ProtectedRoute>
+          {({ user }) => <Architecture user={user} />}
         </ProtectedRoute>
       } />
       <Route path="*" element={<Navigate to="/" replace />} />
