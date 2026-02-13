@@ -156,14 +156,12 @@ const Dashboard = ({ user }) => {
         </div>
 
         {/* Overall Risk Indicator */}
-        <motion.div 
+        <div 
           className={`relative overflow-hidden rounded-xl p-6 border ${
             riskStatus === "critical" ? "border-red-500/50 bg-red-500/5" :
             riskStatus === "warning" ? "border-amber-500/50 bg-amber-500/5" :
             "border-emerald-500/50 bg-emerald-500/5"
           }`}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
         >
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
             <div className="flex items-center gap-4">
