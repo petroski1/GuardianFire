@@ -273,20 +273,18 @@ const Dashboard = ({ user }) => {
                       onAnalyze={() => handleAnalyzeRisk(alert.sector_id)}
                       analyzing={analyzing}
                     />
-                  </motion.div>
+                  </div>
                 ))
               ) : (
-                <motion.div 
+                <div 
                   className="bg-[#121214] border border-zinc-800 rounded-xl p-8 text-center"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
                 >
                   <Shield className="w-12 h-12 text-emerald-500 mx-auto mb-4" />
                   <p className="text-zinc-400 font-heading">Nenhum alerta ativo</p>
                   <p className="text-zinc-500 text-sm mt-1">Todos os sistemas operando normalmente</p>
-                </motion.div>
+                </div>
               )}
-            </AnimatePresence>
+            </div>
           </div>
 
           {/* Sectors & Sensors Column */}
@@ -298,15 +296,14 @@ const Dashboard = ({ user }) => {
               </h2>
               <div className="space-y-3">
                 {stats?.sectors?.map((sector) => (
-                  <motion.div
+                  <div
                     key={sector.sector_id}
-                    className={`bg-[#121214] border rounded-lg p-4 cursor-pointer transition-all card-hover ${
+                    className={`bg-[#121214] border rounded-lg p-4 cursor-pointer transition-all hover:scale-[1.02] ${
                       sector.status === "critical" ? "border-red-500/50" :
                       sector.status === "warning" ? "border-amber-500/50" :
                       "border-zinc-800"
                     }`}
                     onClick={() => navigate(`/sector/${sector.sector_id}`)}
-                    whileHover={{ scale: 1.02 }}
                     data-testid={`sector-${sector.sector_id}`}
                   >
                     <div className="flex items-center justify-between">
@@ -328,7 +325,7 @@ const Dashboard = ({ user }) => {
                         "bg-emerald-500"
                       }`} />
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
                 
                 {(!stats?.sectors || stats.sectors.length === 0) && (
