@@ -174,9 +174,9 @@ const Sensors = ({ user }) => {
           {filteredSensors.map((sensor, index) => (
             <div
               key={sensor.sensor_id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.05 }}
+              
+              
+              
             >
               <SensorGauge 
                 sensor={sensor}

@@ -262,9 +262,9 @@ const Reports = ({ user }) => {
             <div
               key={report.report_id}
               className="bg-[#121214] border border-zinc-800 rounded-xl p-5"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.05 }}
+              
+              
+              
               data-testid={`report-${report.report_id}`}
             >
               <div className="flex items-start justify-between gap-4">
