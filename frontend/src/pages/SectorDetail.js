@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { motion } from "framer-motion";
+
 import { API } from "../App";
 import DashboardLayout from "../components/DashboardLayout";
 import SensorGauge from "../components/SensorGauge";
@@ -178,7 +178,7 @@ const SectorDetail = ({ user }) => {
         </div>
 
         {/* Risk Overview */}
-        <motion.div 
+        <div 
           className={`relative overflow-hidden rounded-xl p-6 border ${
             riskStatus === "critical" ? "border-red-500/50 bg-red-500/5 glow-critical" :
             riskStatus === "warning" ? "border-amber-500/50 bg-amber-500/5 glow-warning" :
@@ -217,7 +217,7 @@ const SectorDetail = ({ user }) => {
             
             <div className="w-full md:w-80">
               <div className="h-4 bg-zinc-800 rounded-full overflow-hidden">
-                <motion.div 
+                <div 
                   className="h-full risk-meter rounded-full"
                   initial={{ width: 0 }}
                   animate={{ width: `${sector.risk_level || 0}%` }}
@@ -226,7 +226,7 @@ const SectorDetail = ({ user }) => {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Main Grid */}
         <div className="grid lg:grid-cols-2 gap-6">
