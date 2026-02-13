@@ -200,11 +200,9 @@ const Dashboard = ({ user }) => {
             {/* Risk Bar */}
             <div className="w-full md:w-64">
               <div className="h-3 bg-zinc-800 rounded-full overflow-hidden">
-                <motion.div 
-                  className="h-full risk-meter rounded-full"
-                  initial={{ width: 0 }}
-                  animate={{ width: `${overallRisk}%` }}
-                  transition={{ duration: 1, ease: "easeOut" }}
+                <div 
+                  className="h-full risk-meter rounded-full transition-all duration-1000"
+                  style={{ width: `${overallRisk}%` }}
                 />
               </div>
               <div className="flex justify-between mt-1 text-xs text-zinc-500 font-mono">
@@ -214,7 +212,7 @@ const Dashboard = ({ user }) => {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Metrics Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -265,16 +263,10 @@ const Dashboard = ({ user }) => {
               </span>
             </div>
             
-            <AnimatePresence mode="popLayout">
+            <div className="space-y-4">
               {alerts.length > 0 ? (
-                alerts.slice(0, 5).map((alert, index) => (
-                  <motion.div
-                    key={alert.alert_id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, x: -20 }}
-                    transition={{ delay: index * 0.1 }}
-                  >
+                alerts.slice(0, 5).map((alert) => (
+                  <div key={alert.alert_id}>
                     <RiskCard 
                       alert={alert} 
                       onResolve={() => handleResolveAlert(alert.alert_id)}
