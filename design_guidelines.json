@@ -1,0 +1,146 @@
+{
+  "identity": {
+    "name": "GuardianFire AI",
+    "persona": "The Prescriptive Shield",
+    "core_concept": "Collision Sensor with Automatic Braking",
+    "emotional_tone": "Incisive, Silent, Predictive, Industrial",
+    "visual_style": "Tactical Control Room",
+    "theme_mode": "dark"
+  },
+  "typography": {
+    "headings": {
+      "family": "Barlow Condensed, sans-serif",
+      "weights": ["600", "700"],
+      "usage": "Page titles, Card headers, Metric labels"
+    },
+    "body": {
+      "family": "Inter, sans-serif",
+      "weights": ["400", "500"],
+      "usage": "General text, descriptions, navigation"
+    },
+    "mono": {
+      "family": "JetBrains Mono, monospace",
+      "weights": ["400", "500"],
+      "usage": "Sensor readings, IDs, Timestamps, Code snippets"
+    },
+    "installation_guide": "Add these fonts via Google Fonts in index.html"
+  },
+  "colors": {
+    "palette": {
+      "background": {
+        "default": "#09090b",
+        "paper": "#121214",
+        "subtle": "#18181b"
+      },
+      "foreground": {
+        "default": "#fafafa",
+        "muted": "#a1a1aa",
+        "subtle": "#52525b"
+      },
+      "primary": {
+        "DEFAULT": "#ea580c",
+        "hover": "#c2410c",
+        "foreground": "#ffffff"
+      },
+      "status": {
+        "safe": "#10b981",
+        "warning": "#f59e0b",
+        "critical": "#e11d48",
+        "info": "#3b82f6"
+      },
+      "border": {
+        "default": "#27272a",
+        "active": "#ea580c"
+      }
+    },
+    "usage_rules": {
+      "dashboard_bg": "Use background.default (#09090b) for the main canvas.",
+      "cards": "Use background.paper (#121214) with a 1px border (#27272a).",
+      "gradients": "FORBIDDEN. Use solid colors or extremely subtle radial glows for 'active' states only.",
+      "text_contrast": "Ensure all text on dark backgrounds is at least #a1a1aa or lighter."
+    }
+  },
+  "layout": {
+    "grid_system": "Bento Grid Mode B (High Density)",
+    "spacing": {
+      "container_padding": "p-6 md:p-8",
+      "gap": "gap-4 md:gap-6",
+      "card_padding": "p-5"
+    },
+    "breakpoints": {
+      "mobile": "grid-cols-1",
+      "tablet": "md:grid-cols-2",
+      "desktop": "lg:grid-cols-4",
+      "widescreen": "xl:grid-cols-12"
+    },
+    "sidebar": {
+      "width": "w-64",
+      "behavior": "Fixed on desktop, drawer on mobile"
+    }
+  },
+  "components": {
+    "RiskCard": {
+      "description": "The primary actionable unit. Shows a risk, its probability, and a prescriptive button.",
+      "style": "Flat card, left colored border indicating severity (Green/Yellow/Red).",
+      "interaction": "Hover lifts slightly (-translate-y-1) and brightens border."
+    },
+    "MetricWidget": {
+      "description": "Single data point with trend indicator.",
+      "style": "Minimalist. Big number (JetBrains Mono), small label (Barlow Condensed). Sparkline background optional."
+    },
+    "SensorGauge": {
+      "description": "Circular or linear progress bar showing current sensor load.",
+      "style": "Technical look. Thin strokes. No rounded caps."
+    },
+    "WorkOrderFeed": {
+      "description": "List of auto-generated tasks.",
+      "style": "Compact list items. Status badge on right. Monospace ID on left."
+    }
+  },
+  "visual_enhancements": {
+    "borders": "1px solid border-white/10 on all cards. No heavy shadows.",
+    "active_states": "Use a 'Glow' effect: box-shadow: 0 0 10px rgba(234, 88, 12, 0.2) for active elements.",
+    "textures": "Optional subtle 'scanline' overlay (repeating linear gradient) on specific 'Sensor View' sections for immersion.",
+    "icons": "Use Lucide React or Phosphor Icons (Regular weight). Technical and sharp."
+  },
+  "assets": {
+    "images": [
+      {
+        "category": "Hero/Login Background",
+        "url": "https://images.unsplash.com/photo-1720036237334-9263cd28c3d4?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "description": "Dark industrial factory interior, cinematic lighting."
+      },
+      {
+        "category": "Sensor Thumbnail",
+        "url": "https://images.unsplash.com/photo-1592919347498-69564e361791?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "description": "Close up of electronic circuit board (green/black)."
+      },
+      {
+        "category": "Engineer Avatar",
+        "url": "https://images.unsplash.com/photo-1688841747582-41097036109d?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "description": "Industrial safety engineer in hard hat."
+      }
+    ]
+  },
+  "libraries": {
+    "charts": "Recharts (Mandatory for performance). Customize generic look to match 'Industrial' theme (hide grid lines, custom dark tooltips).",
+    "maps": "React Map GL or simple SVG maps for Sector View. Dark mode styling.",
+    "icons": "lucide-react",
+    "animations": "Framer Motion (for 'Risk Level' transitions and critical alerts)."
+  },
+  "universal_guidelines": [
+    "Dark Mode Only: The application is strictly dark mode. Do not implement a light toggle unless absolutely necessary.",
+    "Data Density: Maximized. Avoid whitespace for the sake of 'art'. This is a tool for engineers.",
+    "Prescriptive UX: Every red/yellow state MUST have an associated 'Action' button nearby.",
+    "Typography: Use 'Barlow Condensed' for all headings to save horizontal space and look industrial.",
+    "Accessibility: Ensure contrast ratios on the dark background. Use clear icons alongside colors for colorblind safety."
+  ],
+  "instructions_to_main_agent": [
+    "1. Setup fonts: Import Barlow Condensed, Inter, and JetBrains Mono.",
+    "2. Configure Tailwind: Add the specific colors to tailwind.config.js.",
+    "3. Build Layout: Create a DashboardLayout component with a Sidebar and Topbar.",
+    "4. Create Components: Build 'RiskCard', 'MetricWidget', and 'SensorChart' first.",
+    "5. Assemble Pages: Construct the Dashboard using the Bento Grid strategy.",
+    "6. Apply Interactions: Add simple hover states and the 'Active Prediction' glow effects."
+  ]
+}
