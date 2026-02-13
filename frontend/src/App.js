@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState, Component } from "react";
 import { BrowserRouter, Routes, Route, useLocation, useNavigate, Navigate } from "react-router-dom";
 import axios from "axios";
 
@@ -19,6 +19,41 @@ import { Toaster } from "./components/ui/sonner";
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 export const API = `${BACKEND_URL}/api`;
 
+// Error Boundary to catch React errors
+class ErrorBoundary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    console.error("React Error:", error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="min-h-screen bg-[#09090b] flex items-center justify-center">
+          <div className="text-center p-8">
+            <p className="text-zinc-400 mb-4">Algo deu errado. Recarregue a página.</p>
+            <button 
+              onClick={() => window.location.reload()}
+              className="bg-orange-500 text-white px-4 py-2 rounded-lg"
+            >
+              Recarregar
+            </button>
+          </div>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+
 // Protected Route Component
 const ProtectedRoute = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(null);
@@ -27,6 +62,8 @@ const ProtectedRoute = ({ children }) => {
   const location = useLocation();
 
   useEffect(() => {
+    let isMounted = true;
+    
     // If user data passed from AuthCallback, skip auth check
     if (location.state?.user) {
       setUser(location.state.user);
@@ -39,14 +76,22 @@ const ProtectedRoute = ({ children }) => {
         const response = await axios.get(`${API}/auth/me`, {
           withCredentials: true
         });
-        setUser(response.data);
-        setIsAuthenticated(true);
+        if (isMounted) {
+          setUser(response.data);
+          setIsAuthenticated(true);
+        }
       } catch (error) {
-        setIsAuthenticated(false);
-        navigate("/", { replace: true });
+        if (isMounted) {
+          setIsAuthenticated(false);
+          navigate("/", { replace: true });
+        }
       }
     };
     checkAuth();
+    
+    return () => {
+      isMounted = false;
+    };
   }, [navigate, location.state]);
 
   if (isAuthenticated === null) {
@@ -123,12 +168,14 @@ function AppRouter() {
 
 function App() {
   return (
-    <div className="App dark">
-      <BrowserRouter>
-        <AppRouter />
-        <Toaster position="top-right" richColors />
-      </BrowserRouter>
-    </div>
+    <ErrorBoundary>
+      <div className="App dark">
+        <BrowserRouter>
+          <AppRouter />
+          <Toaster position="top-right" richColors closeButton />
+        </BrowserRouter>
+      </div>
+    </ErrorBoundary>
   );
 }
 
