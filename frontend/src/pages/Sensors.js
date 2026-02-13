@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { motion } from "framer-motion";
+
 import { API } from "../App";
 import DashboardLayout from "../components/DashboardLayout";
 import SensorGauge from "../components/SensorGauge";
@@ -172,7 +172,7 @@ const Sensors = ({ user }) => {
         {/* Sensors Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredSensors.map((sensor, index) => (
-            <motion.div
+            <div
               key={sensor.sensor_id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -183,7 +183,7 @@ const Sensors = ({ user }) => {
                 icon={getSensorIcon(sensor.sensor_type)}
                 expanded
               />
-            </motion.div>
+            </div>
           ))}
         </div>
 

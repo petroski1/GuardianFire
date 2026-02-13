@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { motion } from "framer-motion";
+
 import { API } from "../App";
 import DashboardLayout from "../components/DashboardLayout";
 import { Button } from "../components/ui/button";
@@ -169,7 +169,7 @@ const WorkOrders = ({ user }) => {
         {/* Orders List */}
         <div className="space-y-4">
           {filteredOrders.map((order, index) => (
-            <motion.div
+            <div
               key={order.order_id}
               className={`bg-[#121214] border rounded-xl p-5 ${
                 order.priority === "urgent" ? "border-red-500/30" :
@@ -234,7 +234,7 @@ const WorkOrders = ({ user }) => {
                   )}
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 

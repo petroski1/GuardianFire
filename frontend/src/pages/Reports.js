@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { motion } from "framer-motion";
+
 import { API } from "../App";
 import DashboardLayout from "../components/DashboardLayout";
 import { Button } from "../components/ui/button";
@@ -259,7 +259,7 @@ const Reports = ({ user }) => {
         {/* Reports List */}
         <div className="space-y-4">
           {reports.map((report, index) => (
-            <motion.div
+            <div
               key={report.report_id}
               className="bg-[#121214] border border-zinc-800 rounded-xl p-5"
               initial={{ opacity: 0, y: 20 }}
@@ -285,7 +285,7 @@ const Reports = ({ user }) => {
                   {getCategoryLabel(report.category)}
                 </span>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
