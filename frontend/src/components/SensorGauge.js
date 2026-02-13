@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Progress } from "./ui/progress";
 
 const SensorGauge = ({ sensor, icon, expanded = false }) => {
@@ -34,9 +33,8 @@ const SensorGauge = ({ sensor, icon, expanded = false }) => {
   const percentage = Math.min((sensor.current_value / sensor.max_threshold) * 100, 100);
 
   return (
-    <motion.div
-      className={`bg-[#121214] border ${styles.border} rounded-lg ${expanded ? "p-4" : "p-3"} ${styles.glow}`}
-      whileHover={{ scale: 1.02 }}
+    <div
+      className={`bg-[#121214] border ${styles.border} rounded-lg ${expanded ? "p-4" : "p-3"} ${styles.glow} transition-transform hover:scale-[1.02]`}
       data-testid={`sensor-${sensor.sensor_id}`}
     >
       <div className="flex items-center justify-between mb-2">
@@ -62,11 +60,9 @@ const SensorGauge = ({ sensor, icon, expanded = false }) => {
       {/* Progress Bar */}
       <div className="space-y-1">
         <div className="h-2 bg-zinc-800 rounded-full overflow-hidden">
-          <motion.div
-            className={`h-full ${styles.bg} rounded-full`}
-            initial={{ width: 0 }}
-            animate={{ width: `${percentage}%` }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
+          <div
+            className={`h-full ${styles.bg} rounded-full transition-all duration-500`}
+            style={{ width: `${percentage}%` }}
           />
         </div>
         <div className="flex justify-between text-xs text-zinc-500 font-mono">
@@ -86,7 +82,7 @@ const SensorGauge = ({ sensor, icon, expanded = false }) => {
           </div>
         </div>
       )}
-    </motion.div>
+    </div>
   );
 };
 

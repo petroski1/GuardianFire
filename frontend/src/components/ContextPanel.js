@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import {
   Thermometer,
   Droplets,
@@ -44,11 +43,7 @@ const ContextPanel = ({ context }) => {
   const warningCount = contextItems.filter(item => item.warning).length;
 
   return (
-    <motion.div
-      className="bg-[#121214] border border-zinc-800 rounded-xl p-5"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-    >
+    <div className="bg-[#121214] border border-zinc-800 rounded-xl p-5">
       <div className="flex items-center justify-between mb-4">
         <h3 className="font-heading font-semibold text-white">Variáveis de Contexto</h3>
         {warningCount > 0 && (
@@ -89,7 +84,7 @@ const ContextPanel = ({ context }) => {
           </p>
         </div>
       )}
-    </motion.div>
+    </div>
   );
 };
 

@@ -49,9 +49,8 @@ const RiskCard = ({ alert, onResolve, onAnalyze, analyzing = false, compact = fa
   const styles = getSeverityStyles(alert.severity);
 
   return (
-    <motion.div
-      className={`${styles.bg} border-l-4 ${styles.border} rounded-r-xl ${compact ? "p-4" : "p-5"} ${styles.glow}`}
-      whileHover={{ scale: 1.01 }}
+    <div
+      className={`${styles.bg} border-l-4 ${styles.border} rounded-r-xl ${compact ? "p-4" : "p-5"} ${styles.glow} transition-transform hover:scale-[1.01]`}
       data-testid={`risk-card-${alert.alert_id}`}
     >
       {/* Header */}
@@ -150,7 +149,7 @@ const RiskCard = ({ alert, onResolve, onAnalyze, analyzing = false, compact = fa
           Executar Ação Prescrita
         </Button>
       )}
-    </motion.div>
+    </div>
   );
 };
 

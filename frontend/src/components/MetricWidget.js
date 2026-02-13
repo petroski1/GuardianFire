@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { TrendingUp, TrendingDown, Minus } from "lucide-react";
 
 const MetricWidget = ({ label, value, icon, trend = "neutral", trendColor = "zinc", className = "" }) => {
@@ -11,11 +10,8 @@ const MetricWidget = ({ label, value, icon, trend = "neutral", trendColor = "zin
   };
 
   return (
-    <motion.div
-      className={`bg-[#121214] border border-zinc-800 rounded-xl p-4 card-hover ${className}`}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      whileHover={{ borderColor: "rgba(234, 88, 12, 0.3)" }}
+    <div
+      className={`bg-[#121214] border border-zinc-800 rounded-xl p-4 transition-all hover:border-orange-500/30 ${className}`}
     >
       <div className="flex items-start justify-between">
         <div className="w-10 h-10 bg-zinc-800 rounded-lg flex items-center justify-center text-orange-500">
@@ -32,7 +28,7 @@ const MetricWidget = ({ label, value, icon, trend = "neutral", trendColor = "zin
           {label}
         </p>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
