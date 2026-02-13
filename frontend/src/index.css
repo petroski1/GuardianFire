@@ -151,3 +151,18 @@ body {
     display: contents !important;
   }
 }
+
+/* Hide external badges */
+a[href*="emergent"], 
+iframe[src*="emergent"],
+div[style*="emergent"],
+.lovable-badge,
+[data-testid*="emergent"],
+a[href*="emergentagent"] {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  z-index: -9999 !important;
+}
